@@ -4,6 +4,7 @@ from azureml.core import Workspace
 from azureml.core.compute import ComputeTarget
 from azureml.core import Experiment
 from azureml.core.run import Run
+from azure.storage.blob import BlobServiceClient
 
 
 tenant_id = "ee10b4ad-568d-4026-9cca-3f47d86d0d04"
@@ -18,6 +19,8 @@ credentials = ClientSecretCredential(
               client_id = client_id,
               client_secret = client_secret)
 
+blob_service_client = BlobServiceClient(account_url="https://mlwdp100labs7488979237.blob.core.windows.net", credential=credential)
+
 ws = Workspace(
               subscription_id = subscription_id,
               resource_group = resource_group,
@@ -26,8 +29,7 @@ ws = Workspace(
 
 compute_target = ComputeTarget(worspace = ws, name = 'trial-compute')
 
-run = experiment.submit(
-script = 'Users/shudharsananm.1989/my_own_code/github_actions_testing.py', compute_target = compute_target)
+run = experiment.submit(script = 'Users/shudharsananm.1989/my_own_code/github_actions_testing.py', compute_target = compute_target)
 
 if run.status == 'completed':
   print("Run completed")
