@@ -2,7 +2,7 @@ name: testing_github_action_name
 
 on:
   schedule:
-    - cron: '*/2 0 * * *' 
+    - cron: '*/5 * * * *'
 
 jobs:
   github_action_job:
