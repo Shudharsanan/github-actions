@@ -1,6 +1,6 @@
 import os
 from azure.identity import ClientSecretCredential
-from azureml.core import Workspace
+from azureml.core import Workspace, Datastore
 from azureml.core.compute import ComputeTarget
 from azureml.core import Experiment, ScriptRunConfig
 from azureml.core.run import Run
@@ -31,15 +31,21 @@ ws = Workspace(subscription_id = subscription_id,
 
 compute_target = ComputeTarget(workspace = ws, name = 'trial-compute')
 
-script_config = ScriptRunConfig(source_directory = 'Users/shudharsananm.1989/my_own_code/', script = 'github_actions_testing.py', compute_target = compute_target)
+datastore = Datastore.get(ws, 'workspaceblobstore')
+notebook_path_in_datastore = datastore.path('my_own_code/github_actions_testing.py')
+print("Notebook path in datastore:", notebook_path_in_datastore)
 
-experiment_name = "my-first-experiment"
-experiment = Experiment(workspace=ws, name=experiment_name)
-run = experiment.submit(config = script_config)
 
-if run.status == 'completed':
-  print("Run completed")
-elif run.status == 'Failed':
-  print(f"Run failed with error: {run.error}")
-else:
-  print(f'Run was {run.status}')
+
+#script_config = ScriptRunConfig(source_directory = 'Users/shudharsananm.1989/my_own_code/', script = 'github_actions_testing.py', compute_target = compute_target)
+
+#experiment_name = "my-first-experiment"
+#experiment = Experiment(workspace=ws, name=experiment_name)
+#run = experiment.submit(config = script_config)
+
+#if run.status == 'completed':
+#  print("Run completed")
+#elif run.status == 'Failed':
+#  print(f"Run failed with error: {run.error}")
+#else:
+#  print(f'Run was {run.status}')
