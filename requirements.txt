@@ -1,2 +1,5 @@
+setuptools==75.4.0
+distribute==0.7.3
+azure-ml-ai==1.22.0
 azure-identity==1.8.0
 azureml-core==1.50.0
