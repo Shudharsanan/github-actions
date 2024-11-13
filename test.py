@@ -33,7 +33,7 @@ ws = Workspace(
 
 compute_target = ComputeTarget(workspace = ws, name = 'trial-compute')
 
-run = experiment.submit(script = 'Users/shudharsananm.1989/my_own_code/github_actions_testing.py', compute_target = compute_target)
+run = Experiment.submit(script = 'Users/shudharsananm.1989/my_own_code/github_actions_testing.py', compute_target = compute_target)
 
 if run.status == 'completed':
   print("Run completed")
