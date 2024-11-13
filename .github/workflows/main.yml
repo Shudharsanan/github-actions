@@ -1,13 +1,21 @@
-name:testing_github_action
+name: testing_github_action_name
 
 on:
   schedule:
     - cron: '*/2 0 * * *' 
 
 jobs:
-  github_action:
+  github_action_job:
     runs-on: ubuntu-latest
 
     steps:
-    - name: print testing github actions
+    - name: checkout
+      uses: actions/checkout@v4
+
+    - name: setup python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.13' 
+
+    - name: Run a py script
       run: python test.py
