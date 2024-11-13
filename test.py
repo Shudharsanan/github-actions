@@ -19,7 +19,7 @@ credentials = ClientSecretCredential(
               client_id = client_id,
               client_secret = client_secret)
 
-blob_service_client = BlobServiceClient(account_url="https://mlwdp100labs7488979237.blob.core.windows.net", credential=credential)
+blob_service_client = BlobServiceClient(account_url="https://mlwdp100labs7488979237.blob.core.windows.net", credential=credentials)
 
 ws = Workspace(
               subscription_id = subscription_id,
