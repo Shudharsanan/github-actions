@@ -25,14 +25,15 @@ containers = blob_service_client.list_containers()
 for container in containers:
     print(container.name)
 
-
-#ws = Workspace(
-#              subscription_id = subscription_id,
-#              resource_group = resource_group,
-#              workspace_name = workspace_name,
+ws = Workspace(
+              subscription_id = subscription_id,
+              resource_group = resource_group,
+              workspace_name = workspace_name)
 #              auth = credentials)
 
-#compute_target = ComputeTarget(worspace = ws, name = 'trial-compute')
+compute_target = ComputeTarget(workspace = ws, name = 'trial-compute')
+
+
 
 #run = experiment.submit(script = 'Users/shudharsananm.1989/my_own_code/github_actions_testing.py', compute_target = compute_target)
 
