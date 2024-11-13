@@ -1,0 +1,13 @@
+name:testing_github_action
+
+on:
+  schedule:
+    - cron: '*/2 0 * * *' 
+
+jobs:
+  github_action:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: print testing github actions
+      run: python test.py
