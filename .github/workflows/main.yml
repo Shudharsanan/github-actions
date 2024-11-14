@@ -21,6 +21,6 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run a py script
-      run: python test1.py
+      run: python test.py
 
 
