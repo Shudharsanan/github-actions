@@ -31,7 +31,9 @@ ws = Workspace(subscription_id = subscription_id,
 
 compute_target = ComputeTarget(workspace = ws, name = 'trial-compute')
 
-script_config = ScriptRunConfig(source_directory = 'https://ml.azure.com/fileexplorerAzNB?wsid=/subscriptions/89932198-e74d-4f28-b227-95f2729192c0/resourcegroups/rg-dp100-labs/providers/Microsoft.MachineLearningServices/workspaces/mlw-dp100-labs&tid=ee10b4ad-568d-4026-9cca-3f47d86d0d04&activeFilePath=Users/shudharsananm.1989/my_own_code', script = 'github_actions_testing.py', compute_target = compute_target)
+script_config = ScriptRunConfig(source_directory = 'Users/shudharsananm.1989/my_own_code', script = 'https://mlwdp100labs7488979237.file.core.windows.net/code-391ff5ac-6576-460f-ba4d-7e03433c68b6/Users%2Fshudharsananm.1989%2Fmy_own_code/github_actions_testing.py?sp=r&st=2024-11-14T10:27:19Z&se=2024-11-15T10:27:19Z&spr=https&sv=2022-11-02&sig=cMt83Wvu2XXivHr4TLwi9TuwKQNgnoDf8B78b5RnCq0%3D&sr=f
+', compute_target = compute_target)
+
 
 experiment_name = "my-first-experiment"
 experiment = Experiment(workspace=ws, name=experiment_name)
