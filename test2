@@ -41,21 +41,23 @@ mount_point = data_path.mount()
 # Mount the data and use it in the ScriptRunConfig
 mount_point.start()
 
+print(data_path)
+
 #from azureml.core.environment import Environment
 #env = Environment.get(workspace, name="AzureML-py36-CPU")
 
-script_directory = '/mnt/batch/tasks/shared/LS_root/mounts/clusters/trial-compute/code/Users/shudharsananm.1989/my_own_code'
+#script_directory = '/mnt/batch/tasks/shared/LS_root/mounts/clusters/trial-compute/code/Users/shudharsananm.1989/my_own_code'
 
-script_config = ScriptRunConfig(source_directory = script_directory, script = 'github_actions_testing.py', compute_target = compute_target)
+#script_config = ScriptRunConfig(source_directory = script_directory, script = 'github_actions_testing.py', compute_target = compute_target)
 #environment=env,
 
-experiment_name = "my-first-experiment"
-experiment = Experiment(workspace=ws, name=experiment_name)
-run = experiment.submit(config = script_config)
+#experiment_name = "my-first-experiment"
+#experiment = Experiment(workspace=ws, name=experiment_name)
+#run = experiment.submit(config = script_config)
 
-if run.status == 'completed':
-  print("Run completed")
-elif run.status == 'Failed':
-  print(f"Run failed with error: {run.error}")
-else:
-  print(f'Run was {run.status}')
+#if run.status == 'completed':
+#  print("Run completed")
+#elif run.status == 'Failed':
+#  print(f"Run failed with error: {run.error}")
+#else:
+#  print(f'Run was {run.status}')
