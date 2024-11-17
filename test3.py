@@ -38,11 +38,11 @@ def run_py_file_in_share(file_name, directory_client=None):
                     # Run the python script using subprocess
                     result = subprocess.run(command, shell=True, capture_output=True, text=True)
 
-                    # Print the output of the script
-                    print(f"STDOUT:\n{result.stdout}")
-                    if result.stderr:
-                        print(f"STDERR:\n{result.stderr}")
-                    return  # Exit after running the file (only the first match will be run)
+#                    # Print the output of the script
+#                    print(f"STDOUT:\n{result.stdout}")
+#                    if result.stderr:
+#                        print(f"STDERR:\n{result.stderr}")
+#                    return  # Exit after running the file (only the first match will be run)
 
     except Exception as e:
         print(f"Error: {e}")
