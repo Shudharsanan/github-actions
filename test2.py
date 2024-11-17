@@ -32,16 +32,25 @@ ws = Workspace(subscription_id = subscription_id,
 
 compute_target = ComputeTarget(workspace = ws, name = 'trial-compute')
 
-datastore = Datastore.get(ws, 'azure_file_share_datastore')
-data_path = DataPath(datastore, 'Users/shudharsananm.1989/my_own_code/github_actions_testing.py')
+#datastore = Datastore.get(ws, 'azure_file_share_datastore')
+#data_path = DataPath(datastore, 'Users/shudharsananm.1989/my_own_code/github_actions_testing.py')
+
+
+datastore_path = "azureml://datastores/azure_file_share_datastore/paths/Users/shudharsananm.1989/my_own_code/github_actions_testing.py"
+ml_client.data.download(name="my_data", version="1", download_path="./local_data")
+
+print("Data downloaded to ./local_data")
+
+
+
 
 # Mount the datastore to the compute target
-mount_point = data_path.mount()
+#mount_point = data_path.mount()
 
 # Mount the data and use it in the ScriptRunConfig
-mount_point.start()
+#mount_point.start()
 
-print(data_path)
+#print(data_path)
 
 #from azureml.core.environment import Environment
 #env = Environment.get(workspace, name="AzureML-py36-CPU")
