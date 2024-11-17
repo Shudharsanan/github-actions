@@ -4,6 +4,7 @@ azure-common==1.1.28
 azure-core==1.32.0
 azure-graphrbac==0.61.2
 azure-identity==1.19.0
+azure-ai-ml==1.22.1
 azure-mgmt-authorization==4.0.0
 azure-storage-file-share==12.20.0
 azure-mgmt-containerregistry==10.3.0
