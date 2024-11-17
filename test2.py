@@ -20,6 +20,17 @@ credentials = ClientSecretCredential(
               client_id = client_id,
               client_secret = client_secret)
 
+from azure.ai.ml import MLClient
+from azure.identity import DefaultAzureCredential
+
+# Connect to Azure ML workspace
+ml_client = MLClient(
+    DefaultAzureCredential(),
+    subscription_id=subscription_id,
+    resource_group_name=resource_group,
+    workspace_name=workspace_name
+)
+
 blob_service_client = BlobServiceClient(account_url="https://mlwdp100labs7488979237.blob.core.windows.net", credential=credentials)
 
 containers = blob_service_client.list_containers()
